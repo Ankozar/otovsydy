@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<title>Telegram Channel Manager</title>
+</head>
+<body>
+  <header class="header">
+    <h1>Telegram Channel Manager</h1>
+  </header>
+  <div class="main-content">
+    <div class="message-stream">
+      <h2>Лента сообщений</h2>
+      <ul>
+        <li>Сообщение 1</li>
+        <li>Сообщение 2</li>
+        <!-- Дополнительные сообщения -->
+      </ul>
+    </div>
+    <div class="channels-container">
+      <div class="tabs">
+        <button class="tab-button" onclick="openTab(event, 'destinations')">Каналы-назначения</button>
+        <button class="tab-button" onclick="openTab(event, 'sources')">Каналы-источники</button>
+      </div>
+      <div id="destinations" class="tab-content">
+        <h2>Каналы-назначения</h2>
+        <ul>
+          <li>Канал Назначения 1</li>
+          <li>Канал Назначения 2</li>
+          <!-- Дополнительные каналы-назначения -->
+        </ul>
+      </div>
+      <div id="sources" class="tab-content" style="display:none;">
+        <h2>Каналы-источники</h2>
+        <ul>
+          <li>Канал Источник 1</li>
+          <li>Канал Источник 2</li>
+          <!-- Дополнительные каналы-источники -->
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="update_messages.js"></script>
+  <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tabbuttons;
+      tabcontent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tabbuttons = document.getElementsByClassName("tab-button");
+      for (i = 0; i < tabbuttons.length; i++) {
+        tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
+</body>
+</html>
